@@ -22,8 +22,8 @@ const hrefPdf = pdf || (acl ? `https://aclanthology.org/${acl}.pdf` : undefined)
   <div><span set:html={authors} /> ({year}).</div>
   <div class="ml-8">
     <span
-      ><a class="text-blue-700 hover:underline" href={href} target="_blank">{title}</a>.
-      {venue && <span class="italic">{venue}.</span>}
+      ><a class="text-blue-700 hover:underline" href={href} target="_blank">{title}</a>
+      {venue && <span class="italic block">{venue}</span>}
     </span>
   </div>
   <div class="ml-8 text-sm">
