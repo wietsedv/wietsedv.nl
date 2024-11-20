@@ -19,7 +19,7 @@ const hrefPdf = pdf || (acl ? `https://aclanthology.org/${acl}.pdf` : undefined)
 ---
 
 <li>
-  <div><span set:html={authors} /> ({year}).</div>
+  <div><span set:html={authors} /> ({year})</div>
   <div class="ml-8">
     <span
       ><a class="text-blue-700 hover:underline" href={href} target="_blank">{title}</a>
