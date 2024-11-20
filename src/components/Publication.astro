@@ -9,10 +9,11 @@ interface Props {
   doi?: string;
   acl?: string;
   pdf?: string;
+  google?: string;
   github?: string;
 }
 
-const { title, year, authors, venue, doi, acl, github, pdf } = Astro.props;
+const { title, year, authors, venue, doi, acl, github, google, pdf } = Astro.props;
 
 const href = doi ? "https://doi.org/" + doi : `https://aclanthology.org/${acl}`;
 const hrefPdf = pdf || (acl ? `https://aclanthology.org/${acl}.pdf` : undefined);
@@ -27,40 +28,69 @@ const hrefPdf = pdf || (acl ? `https://aclanthology.org/${acl}.pdf` : undefined)
     </span>
   </div>
   <div class="ml-8 text-sm">
-    {
+    <!-- {
       doi && (
         <span class="mr-2">
-          <Icon name="academicons:doi" class="inline-block align-middle w-3" />
+          <Icon name="academicons:doi" class="inline-block align-middle w-3 text-gray-600" />
           <a
             href={"https://doi.org/" + doi}
             target="_blank"
-            class="text-gray-600 underline hover:text-gray-800 align-middle"
+            class="text-gray-600 underline hover:text-black align-middle"
             set:html={doi}
           />
         </span>
       )
-	}
+	} -->
     {
       hrefPdf && (
         <span class="mr-2">
-          <Icon name="mdi:file-pdf" class="inline-block align-middle w-3" /><a
-            href={hrefPdf}
-            target="_blank"
-            class="text-gray-600 underline hover:text-gray-800 align-middle"
-            set:html={acl || "pdf"}
-          />
+          <>
+            <Icon name="mdi:file-pdf" class="inline-block align-middle w-3 text-gray-600" />
+            <a
+              href={hrefPdf}
+              target="_blank"
+              class="text-gray-600 underline hover:text-black align-middle"
+              set:html="PDF"
+            />
+          </>
         </span>
       )
     }
     {
       github && (
         <span class="mr-2">
-          <Icon name="logos:github-icon" class="inline-block align-middle w-3" />
+          <Icon name="logos:github-icon" class="inline-block align-middle w-3 text-gray-600" />
           <a
             href={"https://github.com/" + github}
             target="_blank"
-            class="text-gray-600 underline hover:text-gray-800 align-middle"
-            set:html={github}
+            class="text-gray-600 underline hover:text-black align-middle"
+            set:html="Github"
+          />
+        </span>
+      )
+    }
+    {
+      google && (
+        <span class="mr-2">
+          <Icon name="academicons:google-scholar" class="inline-block align-middle w-3 text-gray-600" />
+          <a
+            href={"https://scholar.google.nl/citations?view_op=view_citation&citation_for_view=" + google}
+            target="_blank"
+            class="text-gray-600 underline hover:text-black align-middle"
+            set:html="Google Scholar"
+          />
+        </span>
+      )
+    }
+    {
+      acl && (
+        <span class="mr-2">
+          <Icon name="acl" class="inline-block align-middle w-3 text-gray-600" />
+          <a
+            href={"https://aclanthology.org/" + acl}
+            target="_blank"
+            class="text-gray-600 underline hover:text-black align-middle"
+            set:html="ACL Anthology"
           />
         </span>
       )
