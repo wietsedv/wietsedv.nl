@@ -1,123 +1,212 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from "../layouts/Layout.astro";
+import Publication from "../components/Publication.astro";
+import { Image } from "astro:assets";
+import avatar from "../images/avatar.png";
+import { Icon } from "astro-icon/components";
+import BioEntry from "../components/BioEntry.astro";
+import Title from "../components/Title.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<svg
-			class="astro-a"
-			width="495"
-			height="623"
-			viewBox="0 0 495 623"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			aria-hidden="true"
-		>
-			<path
-				fill-rule="evenodd"
-				clip-rule="evenodd"
-				d="M167.19 364.254C83.4786 364.254 0 404.819 0 404.819C0 404.819 141.781 19.4876 142.087 18.7291C146.434 7.33701 153.027 0 162.289 0H332.441C341.703 0 348.574 7.33701 352.643 18.7291C352.92 19.5022 494.716 404.819 494.716 404.819C494.716 404.819 426.67 364.254 327.525 364.254L264.41 169.408C262.047 159.985 255.147 153.581 247.358 153.581C239.569 153.581 232.669 159.985 230.306 169.408L167.19 364.254ZM160.869 530.172C160.877 530.18 160.885 530.187 160.894 530.195L160.867 530.181C160.868 530.178 160.868 530.175 160.869 530.172ZM136.218 411.348C124.476 450.467 132.698 504.458 160.869 530.172C160.997 529.696 161.125 529.242 161.248 528.804C161.502 527.907 161.737 527.073 161.917 526.233C165.446 509.895 178.754 499.52 195.577 500.01C211.969 500.487 220.67 508.765 223.202 527.254C224.141 534.12 224.23 541.131 224.319 548.105C224.328 548.834 224.337 549.563 224.347 550.291C224.563 566.098 228.657 580.707 237.264 593.914C245.413 606.426 256.108 615.943 270.749 622.478C270.593 621.952 270.463 621.508 270.35 621.126C270.045 620.086 269.872 619.499 269.685 618.911C258.909 585.935 266.668 563.266 295.344 543.933C298.254 541.971 301.187 540.041 304.12 538.112C310.591 533.854 317.059 529.599 323.279 525.007C345.88 508.329 360.09 486.327 363.431 457.844C364.805 446.148 363.781 434.657 359.848 423.275C358.176 424.287 356.587 425.295 355.042 426.275C351.744 428.366 348.647 430.33 345.382 431.934C303.466 452.507 259.152 455.053 214.03 448.245C184.802 443.834 156.584 436.019 136.218 411.348Z"
-				fill="url(#paint0_linear_1805_24383)"></path>
-			<defs>
-				<linearGradient
-					id="paint0_linear_1805_24383"
-					x1="247.358"
-					y1="0"
-					x2="247.358"
-					y2="622.479"
-					gradientUnits="userSpaceOnUse"
-				>
-					<stop stop-opacity="0.9"></stop>
-					<stop offset="1" stop-opacity="0.2"></stop>
-				</linearGradient>
-			</defs>
-		</svg>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
-	</main>
-</Layout>
+<Layout title="Wietse de Vries - Postdoctoral researcher at the University of Groningen">
+  <main class="mx-auto container max-w-2xl">
+    <div class="mx-4 my-12 sm:my-20 [&>p]:my-4">
+      <Image src={avatar} alt="Avatar van Wietse de Vries" class="rounded-full w-40 mx-auto shadow-lg" />
+      <h1 class="text-center my-6 text-4xl font-medium">Wietse de Vries</h1>
+      <p>
+        Hi! I am a postdoctoral researcher at the Computational Linguistics group of the University of Groningen in the
+        Netherlands. My current work is on <span class="font-medium">low-resource speech technology&nbsp;🗣️</span>.
+      </p>
+      <p>
+        Current hobbies include <span class="font-medium">beekeeping&nbsp;🐝</span>,
+        <span class="font-medium">mycology&nbsp;🍄‍🟫</span>, <span class="font-medium">meadmaking</span>&nbsp;🍯, <span class="font-medium">bouldering&nbsp;🪨</span> and
+        <span class="font-medium">ice skating&nbsp;⛸️</span>.
+      </p>
 
-<style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-	}
-	.astro-a {
-		position: absolute;
-		top: -32px;
-		left: 50%;
-		transform: translatex(-50%);
-		width: 220px;
-		height: auto;
-		z-index: -1;
-	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
-		padding: 1.5rem;
-		border-radius: 8px;
-	}
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent-light));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
-		padding: 0;
-	}
-</style>
+      <Title icon="mdi:person-outline">Profiles</Title>
+      <div
+        class="sm:flex [&>ul]:flex-1 [&>ul>li]:my-1 [&>ul>li]:flex [&>ul>li]:items-center [&>ul>li>svg]:w-8 [&>ul>li>a]:text-blue-700 [&>ul>li>a:hover]:underline"
+      >
+        <ul>
+          <li>
+            <Icon name="academicons:google-scholar-square" class="text-red-800" /><a
+              href="https://scholar.google.nl/citations?user=gZkWURYAAAAJ"
+              target="_blank">Google Scholar</a
+            >
+          </li>
+          <li>
+            <Icon name="academicons:semantic-scholar" class="text-yellow-700" /><a
+              href="https://www.semanticscholar.org/author/Wietse-de-Vries/144611157"
+              target="_blank">Semantic Scholar</a
+            >
+          </li>
+          <li>
+            <Icon name="acl" class="px-2" /><a href="https://aclanthology.org/people/w/wietse-de-vries/" target="_blank"
+              >ACL Anthology</a
+            >
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <Icon name="logos:github-icon" /><a href="https://github.com/wietsedv/" target="_blank"
+              ><span class="font-medium">wietsedv</span> on Github</a
+            >
+          </li>
+          <li>
+            <Icon name="logos:hugging-face-icon" /><a href="https://huggingface.co/wietsedv" target="_blank"
+              ><span class="font-medium">wietsedv</span> on Hugging Face</a
+            >
+          </li>
+          <li>
+            <Icon name="logos:bluesky" /><a href="https://bsky.app/profile/wietsedv.nl" target="_blank"
+              ><span class="font-medium">@wietsedv.nl</span> on Bluesky</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <Title icon="mdi:biography">Academic bio</Title>
+      <ul class="[&>li]:my-2">
+        <BioEntry
+          start="2024"
+          end="now"
+          title="Postdoctoral researcher in Speech Technology"
+          affiliation="University of Groningen"
+        />
+        <BioEntry
+          start="2020"
+          end="2024"
+          title="PhD in Computational Linguistics"
+          affiliation="University of Groningen"
+        >
+          <a
+            class="text-blue-700 hover:underline"
+            href="https://hdl.handle.net/11370/615130ba-44bb-46a3-b90c-75c2a4136c3a"
+            target="_blank">PhD thesis</a
+          >: <span class="italic"
+            >Evaluation and Adaptation of Neural Language Models for Under-Resourced Languages</span
+          >
+        </BioEntry>
+        <BioEntry
+          start="2018"
+          end="2020"
+          title="Ma in Information Science"
+          affiliation="University of Groningen"
+          extra="cum laude"
+        />
+        <BioEntry
+          start="2015"
+          end="2018"
+          title="BSc in Information Science"
+          affiliation="University of Groningen"
+          extra="cum laude"
+        />
+      </ul>
+
+      <Title icon="mdi:paper-outline">Publications</Title>
+      <ul class="[&>li]:my-4">
+        <!-- <Publication
+          title=""
+          year={}
+          venue=""
+          doi=""
+          github=""
+          authors=""
+        /> -->
+        <Publication
+          title="Exploring Self-Supervised Speech Representations for Cross-lingual Acoustic-to-Articulatory Inversion"
+          year={2024}
+          venue="Interspeech 2024"
+          doi="10.21437/Interspeech.2024-1740"
+          pdf="https://www.isca-archive.org/interspeech_2024/hao24c_interspeech.pdf"
+          github="haoyunlf/aai"
+          authors="Yun Hao, Reihaneh Amooie, <span class='font-bold'>Wietse de Vries</span>, Thomas Tienkamp, Rik van Noord, Martijn Wieling"
+        />
+        <Publication
+          title="Developing Infrastructure for Low-Resource Language Corpus Building"
+          year={2024}
+          venue="SIGUL 2024"
+          acl="2024.sigul-1.10"
+          authors="Hedwig Sekeres, Wilbert Heeringa, <span class='font-bold'>Wietse de Vries</span>, Oscar Yde Zwagers, Martijn Wieling, Goffe Jensma"
+        />
+        <Publication
+          title="Extracting and classifying exceptional COVID-19 measures from multilingual legal texts: The merits and limitations of automated approaches"
+          year={2024}
+          venue="Regulation & Governance 18"
+          doi="10.1111/rego.12557"
+          pdf="https://onlinelibrary.wiley.com/doi/pdf/10.1111/rego.12557"
+          authors="Clara Egger, Tommaso Caselli, Georgios Tziafas, Eugénie de Saint Phalle, <span class='font-bold'>Wietse de Vries</span>"
+        />
+        <Publication
+          title="Make the Best of Cross-lingual Transfer: Evidence from POS Tagging with over 100 Languages"
+          year={2022}
+          venue="ACL 2022"
+          doi="10.18653/v1/2022.acl-long.529"
+          acl="2022.acl-long.529"
+          github="wietsedv/xpos"
+          authors="<span class='font-bold'>Wietse de Vries</span>, Martijn Wieling, Malvina Nissim"
+        />
+        <Publication
+          title="Neural Representations for Modeling Variation in Speech"
+          year={2022}
+          venue="Journal of Phonetics 92"
+          doi="10.1016/j.wocn.2022.101137"
+          pdf="https://www.ldc.upenn.edu/sites/default/files/may2022_neural_representations_for_modeling.pdf"
+          github="Bartelds/neural-acoustic-distance"
+          authors="Martijn Bartelds, <span class='font-bold'>Wietse de Vries</span>, Faraz Sanal, Caitlin Richter, Mark Liberman, Martijn Wieling"
+        />
+        <Publication
+          title="Adapting Monolingual Models: Data can be Scarce when Language Similarity is High"
+          year={2021}
+          venue="Findings of ACL 2021"
+          doi="10.18653/v1/2021.findings-acl.433"
+          acl="2021.findings-acl.433"
+          github="wietsedv/low-resource-adapt"
+          authors="<span class='font-bold'>Wietse de Vries</span>, Martijn Bartelds, Malvina Nissim, Martijn Wieling"
+        />
+        <Publication
+          title="As Good as New. How to Successfully Recycle English GPT-2 to Make Models for Other Languages"
+          year={2021}
+          venue="Findings of ACL 2021"
+          doi="10.18653/v1/2021.findings-acl.74"
+          acl="2021.findings-acl.74"
+          github="wietsedv/gpt2-recycle"
+          authors="<span class='font-bold'>Wietse de Vries</span>, Malvina Nissim"
+        />
+        <Publication
+          title="A Multilingual Approach to Identify and Classify Exceptional Measures against COVID-19"
+          year={2021}
+          venue="Natural Legal Language Processing Workshop 2021"
+          doi="10.18653/v1/2021.nllp-1.5"
+          acl="2021.nllp-1.5"
+          authors="Georgios Tziafas, Eugenie de Saint-Phalle, <span class='font-bold'>Wietse de Vries</span>, Clara Egger, Tommaso Caselli"
+        />
+        <Publication
+          title="What's so special about BERT's layers? A closer look at the NLP pipeline in monolingual and multilingual models"
+          year={2020}
+          venue="Findings of EMNLP 2020"
+          doi="10.18653/v1/2020.findings-emnlp.389"
+          acl="2020.findings-emnlp.389"
+          github="wietsedv/bertje"
+          authors="<span class='font-bold'>Wietse de Vries</span>, Andreas van Cranenburgh, Malvina Nissim"
+        />
+        <Publication
+          title="BERTje: A Dutch BERT model"
+          year={2019}
+          doi="10.48550/arXiv.1912.09582"
+          pdf="https://arxiv.org/pdf/1912.09582"
+          github="wietsedv/bertje"
+          authors="<span class='font-bold'>Wietse de Vries</span>, Andreas van Cranenburgh, Arianna Bisazza, Tommaso Caselli, Gertjan van Noord, Malvina Nissim"
+        />
+        <Publication
+          title="Cognitively Plausible Computational Models of Lexical Processing Can Explain Variance in Human Word Predictions and Reading Times"
+          year={2019}
+          venue="Artificial Intelligence and Machine Learning (BNAIC 2019)"
+          doi="10.1007/978-3-030-65154-1_4"
+          pdf="https://link.springer.com/content/pdf/10.1007/978-3-030-65154-1_4.pdf"
+          authors="<span class='font-bold'>Wietse de Vries</span>"
+        />
+      </ul>
+    </div>
+  </main>
+</Layout>

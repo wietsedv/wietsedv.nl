@@ -1,0 +1,11 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+	icon: string;
+}
+
+const { icon } = Astro.props;
+---
+
+<h2 class="text-2xl font-semibold mt-8 mb-4 md:-ml-10 flex items-center"><Icon name={icon} class="w-10" /> <span class="text-red-700"><slot /></span></h2>

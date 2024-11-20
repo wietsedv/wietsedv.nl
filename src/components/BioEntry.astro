@@ -1,0 +1,18 @@
+---
+interface Props {
+	start: string;
+	end: string;
+	title: string;
+	affiliation: string;
+	extra?: string;
+}
+
+const { start, end, title, affiliation, extra } = Astro.props;
+---
+
+<li class="flex">
+	<div class="min-w-12 text-right text-red-800">{start}</div>
+	<div class="min-w-4 text-center text-red-800">-</div>
+	<div class="min-w-12 text-left text-red-800">{end}</div>
+	<div class="flex-1">{title}, {affiliation}{extra && <span class="italic">, {extra}</span>}<slot />.</div>
+</li>
