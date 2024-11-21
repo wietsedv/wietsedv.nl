@@ -28,19 +28,6 @@ const hrefPdf = pdf || (acl ? `https://aclanthology.org/${acl}.pdf` : undefined)
     </span>
   </div>
   <div class="ml-8 text-sm">
-    <!-- {
-      doi && (
-        <span class="mr-2">
-          <Icon name="academicons:doi" class="inline-block align-middle w-3 text-gray-600" />
-          <a
-            href={"https://doi.org/" + doi}
-            target="_blank"
-            class="text-gray-600 underline hover:text-black align-middle"
-            set:html={doi}
-          />
-        </span>
-      )
-	} -->
     {
       hrefPdf && (
         <span class="mr-2">
