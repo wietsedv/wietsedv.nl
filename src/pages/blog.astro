@@ -1,0 +1,39 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+
+// export async function getStaticPaths() {
+//   const blogEntries = await getCollection("blog");
+//   return blogEntries.map((entry) => ({
+//     params: { slug: entry.slug },
+//     props: { entry },
+//   }));
+// }
+
+const blogEntries = await getCollection("blog");
+---
+
+<Layout title="Blog by Wietse de Vries" description="Lorem ipsum">
+  <Header />
+  <main class="mx-auto container mt-8 mb-24 px-4 max-w-2xl">
+    <div class="my-12">
+      <h1 class="text-4xl text-gray-800 text-center leading-snug font-semibold mt-4 mb-8">Blog</h1>
+      {
+        blogEntries.map((blogpost) => (
+          <article>
+            <a href={`/blog/${blogpost.slug}`} class="block px-6 py-4 bg-white border-2 shadow-sm transition hover:shadow-md [&>h3]:hover:text-red-900">
+              <h3 class="text-lg font-semibold my-2 text-red-700">{blogpost.data.title}</h3>
+              <div class="my-2 text-sm">
+                <span class="font-semibold">Posted on:</span>{" "}
+                <time datetime={blogpost.data.pubDate.toISOString()}>{blogpost.data.pubDate.toDateString()}</time>
+              </div>
+              <p class="my-2">{blogpost.data.description}</p>
+              <button class="block w-full text-right text-red-700">Read more...</button>
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </main>
+</Layout>

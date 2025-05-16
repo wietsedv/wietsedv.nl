@@ -1,0 +1,23 @@
+---
+import HeaderLink from "./HeaderLink.astro";
+import { Image } from "astro:assets";
+import avatar from "../images/avatar.png";
+---
+
+<header class="border-b-2 bg-white">
+  <div class="mx-auto container px-4 max-w-2xl">
+    <nav class="flex justify-between items-center">
+      <a href="/" class="flex-1">
+      <Image
+        src={avatar}
+        alt="Wietse de Vries"
+        class="rounded-full w-8 my-4 mr-4 shadow-sm inline align-middle"
+        style="background-color: #c3eb77;"
+      />
+      <span class="text-lg sm:text-xl font-medium align-middle">Wietse de Vries</span>
+      </a>
+      <HeaderLink href="/" class="hidden md:block">Home</HeaderLink>
+      <HeaderLink href="/blog">Blog</HeaderLink>
+    </nav>
+  </div>
+</header>

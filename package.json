@@ -20,6 +20,7 @@
   "devDependencies": {
     "@iconify-json/academicons": "^1.2.1",
     "@iconify-json/logos": "^1.2.3",
-    "@iconify-json/mdi": "^1.2.1"
+    "@iconify-json/mdi": "^1.2.1",
+    "@tailwindcss/typography": "^0.5.15"
   }
 }
